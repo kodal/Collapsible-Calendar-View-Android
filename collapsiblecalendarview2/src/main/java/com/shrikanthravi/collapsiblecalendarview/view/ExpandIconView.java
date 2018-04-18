@@ -17,9 +17,9 @@ package com.shrikanthravi.collapsiblecalendarview.view;
  * limitations under the License.
  */
 
-
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -27,7 +27,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
-import android.os.Build;
 import android.support.annotation.FloatRange;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
@@ -181,14 +180,18 @@ public class ExpandIconView extends View {
      * @param animate Indicates thaw state will be changed with animation or not
      * @throws IllegalArgumentException if {@param state} is invalid
      */
+    @SuppressLint("SwitchIntDef")
     public void setState(@State int state, boolean animate) {
         this.state = state;
-        if (state == MORE) {
-            fraction = 0f;
-        } else if (state == LESS) {
-            fraction = 1f;
-        } else {
-            throw new IllegalArgumentException("Unknown state, must be one of STATE_MORE = 0,  STATE_LESS = 1");
+        switch (state) {
+            case MORE:
+                fraction = 0f;
+                break;
+            case LESS:
+                fraction = 1f;
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown state, must be one of STATE_MORE = 0,  STATE_LESS = 1");
         }
         updateArrow(animate);
     }
@@ -355,11 +358,7 @@ public class ExpandIconView extends View {
     }
 
     private void postInvalidateOnAnimationCompat() {
-        final long fakeFrameTime = 10;
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
-            postInvalidateOnAnimation();
-        } else {
-            postInvalidateDelayed(fakeFrameTime);
-        }
+        postInvalidateOnAnimation();
     }
+
 }

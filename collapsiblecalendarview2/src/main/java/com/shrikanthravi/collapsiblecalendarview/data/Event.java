@@ -1,7 +1,5 @@
 package com.shrikanthravi.collapsiblecalendarview.data;
 
-import java.util.Objects;
-
 /**
  * Created by shrikanthravi on 06/03/18.
  */
@@ -41,7 +39,10 @@ public class Event {
 
     @Override
     public int hashCode() {
-        return Objects.hash(mYear, mMonth, mDay);
+        int result = mYear;
+        result = 31 * result + mMonth;
+        result = 31 * result + mDay;
+        return result;
     }
 
 }

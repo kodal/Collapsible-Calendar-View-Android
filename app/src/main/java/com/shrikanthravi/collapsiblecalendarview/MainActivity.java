@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         CollapsibleCalendar collapsibleCalendar = findViewById(R.id.collapsibleCalendarView);
 
-        System.out.println("Testing date "+collapsibleCalendar.getSelectedDay().getDay()+"/"+collapsibleCalendar.getSelectedDay().getMonth()+"/"+collapsibleCalendar.getSelectedDay().getYear());
+        System.out.println("Testing date " + collapsibleCalendar.getSelectedDay().getDay() + "/" + collapsibleCalendar.getSelectedDay().getMonth() + "/" + collapsibleCalendar.getSelectedDay().getYear());
         collapsibleCalendar.setCalendarListener(new CollapsibleCalendar.CalendarListener() {
             @Override
             public void onDaySelect() {
@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
+
 }

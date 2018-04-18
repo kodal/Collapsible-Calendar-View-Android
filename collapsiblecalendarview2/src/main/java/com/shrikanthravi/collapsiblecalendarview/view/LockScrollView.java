@@ -1,5 +1,6 @@
 package com.shrikanthravi.collapsiblecalendarview.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -26,6 +27,8 @@ public class LockScrollView extends ScrollView {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         return false;
     }
+
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         return false;

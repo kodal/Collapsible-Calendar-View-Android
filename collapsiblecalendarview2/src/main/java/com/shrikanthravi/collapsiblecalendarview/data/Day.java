@@ -3,8 +3,6 @@ package com.shrikanthravi.collapsiblecalendarview.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Objects;
-
 /**
  * Created by shrikanthravi on 06/03/18.
  */
@@ -45,7 +43,10 @@ public class Day implements Parcelable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(mYear, mMonth, mDay);
+        int result = mYear;
+        result = 31 * result + mMonth;
+        result = 31 * result + mDay;
+        return result;
     }
 
     private Day(Parcel in) {
