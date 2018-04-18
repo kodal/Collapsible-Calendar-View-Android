@@ -1,16 +1,13 @@
 package com.shrikanthravi.collapsiblecalendarview.widget;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -22,9 +19,7 @@ import com.shrikanthravi.collapsiblecalendarview.data.Day;
 import com.shrikanthravi.collapsiblecalendarview.view.ExpandIconView;
 import com.shrikanthravi.collapsiblecalendarview.view.LockScrollView;
 
-
 public abstract class UICalendar extends LinearLayout {
-
 
     // Day of Week
     public static final int SUNDAY    = 0;
@@ -125,10 +120,6 @@ public abstract class UICalendar extends LinearLayout {
         mBtnPrevWeek         = rootView.findViewById(R.id.btn_prev_week);
         mBtnNextWeek         = rootView.findViewById(R.id.btn_next_week);
         expandIconView       = rootView.findViewById(R.id.expandIcon);
-
-
-
-
     }
 
     protected void setAttributes(TypedArray attrs) {
@@ -180,7 +171,6 @@ public abstract class UICalendar extends LinearLayout {
         setButtonLeftDrawableTintColor(attrs.getColor(R.styleable.UICalendar_buttonLeft_drawableTintColor,mButtonLeftDrawableTintColor));
         setButtonRightDrawableTintColor(attrs.getColor(R.styleable.UICalendar_buttonRight_drawableTintColor,mButtonRightDrawableTintColor));
         setExpandIconColor(attrs.getColor(R.styleable.UICalendar_expandIconColor,mExpandIconColor));
-        Day selectedItem   = null;
     }
 
     public void setButtonLeftDrawableTintColor(int color){
@@ -191,7 +181,6 @@ public abstract class UICalendar extends LinearLayout {
     }
 
     public void setButtonRightDrawableTintColor(int color){
-
         this.mButtonRightDrawableTintColor = color;
         mBtnNextMonth.getDrawable().setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
         mBtnNextWeek.getDrawable().setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
@@ -328,8 +317,5 @@ public abstract class UICalendar extends LinearLayout {
     public void setSelectedItem(Day selectedItem) {
         this.mSelectedItem = selectedItem;
     }
-
-
-
 
 }

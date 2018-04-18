@@ -1,40 +1,54 @@
 package com.shrikanthravi.collapsiblecalendarview.data;
 
-import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.util.Objects;
 
 /**
  * Created by shrikanthravi on 06/03/18.
  */
 
-public class Day implements Parcelable{
+public class Day implements Parcelable {
 
     private int mYear;
     private int mMonth;
     private int mDay;
 
-    public Day(int year, int month, int day){
+    public Day(int year, int month, int day) {
         this.mYear = year;
         this.mMonth = month;
         this.mDay = day;
     }
 
-    public int getMonth(){
+    public int getMonth() {
         return mMonth;
     }
 
-    public int getYear(){
+    public int getYear() {
         return mYear;
     }
 
-    public int getDay(){
+    public int getDay() {
         return mDay;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Day day = (Day) o;
+        return mYear == day.mYear &&
+                mMonth == day.mMonth &&
+                mDay == day.mDay;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(mYear, mMonth, mDay);
+    }
 
-    public Day(Parcel in){
+    private Day(Parcel in) {
         int[] data = new int[3];
         in.readIntArray(data);
         this.mYear = data[0];
@@ -49,10 +63,11 @@ public class Day implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeIntArray(new int[] {this.mYear,
+        dest.writeIntArray(new int[]{this.mYear,
                 this.mMonth,
                 this.mDay});
     }
+
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
         public Day createFromParcel(Parcel in) {
             return new Day(in);
@@ -62,6 +77,5 @@ public class Day implements Parcelable{
             return new Day[size];
         }
     };
-
 
 }

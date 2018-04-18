@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar;
-import com.shrikanthravi.collapsiblecalendarview.widget.UICalendar;
-
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,5 +1,6 @@
 package com.shrikanthravi.collapsiblecalendarview.data;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -110,9 +111,9 @@ public class CalendarAdapter {
 
             Day day = new Day(numYear, numMonth, numDay);
 
-            View view = mInflater.inflate(R.layout.day_layout, null);
-            TextView txtDay = (TextView) view.findViewById(R.id.txt_day);
-            ImageView imgEventTag = (ImageView) view.findViewById(R.id.img_event_tag);
+            @SuppressLint("InflateParams") View view = mInflater.inflate(R.layout.day_layout, null);
+            TextView txtDay = view.findViewById(R.id.txt_day);
+            ImageView imgEventTag = view.findViewById(R.id.img_event_tag);
 
             txtDay.setText(String.valueOf(day.getDay()));
             if (day.getMonth() != mCal.get(Calendar.MONTH)) {

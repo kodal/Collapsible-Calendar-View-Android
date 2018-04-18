@@ -75,9 +75,9 @@ public class ExpandIconView extends View {
 
     private boolean switchColor = false;
     private int color = Color.BLACK;
-    private  int colorMore;
-    private  int colorLess;
-    private  int colorIntermediate;
+    private int colorMore;
+    private int colorLess;
+    private int colorIntermediate;
 
     @NonNull
     private final Paint paint;
@@ -94,12 +94,11 @@ public class ExpandIconView extends View {
     @Nullable
     private ValueAnimator arrowAnimator;
 
-    public void setColor(int color){
+    public void setColor(int color) {
         this.colorLess = color;
         this.colorMore = color;
         this.colorIntermediate = color;
         invalidate();
-
     }
 
     public ExpandIconView(@NonNull Context context) {
@@ -224,8 +223,6 @@ public class ExpandIconView extends View {
 
     /**
      * Set duration of icon animation from state {@link #MORE} to state {@link #LESS}
-     *
-     * @param animationDuration
      */
     public void setAnimationDuration(long animationDuration) {
         animationSpeed = DELTA_ALPHA / animationDuration;
