@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.kodal.collapsiblecalendarview2'
+group = 'com.github.kodal.Collapsible-Calendar-View-Android'
 
 android {
     compileSdkVersion 27
