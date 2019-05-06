@@ -1,1 +1,1 @@
-include ':app', ':collapsiblecalendarview2'
+include ':collapsiblecalendarview2'
